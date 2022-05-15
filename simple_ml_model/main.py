@@ -1,5 +1,6 @@
 from datetime import datetime
 import joblib
+import os 
 
 from utils.load_data import load_data
 from utils.preprocess_data import preprocess_data
@@ -18,10 +19,11 @@ def train_model():
     # fit the best model 
     best_model = fit_best_model(df, best_params)
     # save best model
+    curr_dir = os.getcwd()
+    print(curr_dir)
     now = datetime.now().strftime('%d-%m-%Y_%H:%M:%S')
     filename = 'model_' + now + '.pkl'
-    joblib.dump(best_model, 'simple_ml_model/models/' + filename, compress=1)
-
+    joblib.dump(best_model, 'models/' + filename, compress=1)
 
 if __name__ == '__main__': 
     train_model()
