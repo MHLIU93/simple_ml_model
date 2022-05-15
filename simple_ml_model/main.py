@@ -20,7 +20,7 @@ def train_model():
     # save best model
     now = datetime.now().strftime('%d-%m-%Y_%H:%M:%S')
     filename = 'model_' + now + '.pkl'
-    joblib.dump(best_model, 'models/' + filename, compress=1)
+    joblib.dump(best_model, 'simple_ml_model/models/' + filename, compress=1)
 
 
 if __name__ == '__main__': 
