@@ -22,8 +22,8 @@ def train_model():
     curr_dir = os.getcwd()
     print(curr_dir)
     now = datetime.now().strftime('%d-%m-%Y_%H:%M:%S')
-    filename = 'model_' + now + '.pkl'
-    joblib.dump(best_model, 'models/' + filename, compress=1)
+    filename = curr_dir + '/models/model_' + now + '.pkl'
+    joblib.dump(best_model, filename, compress=1)
 
 if __name__ == '__main__': 
     train_model()
