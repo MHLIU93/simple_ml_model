@@ -1,0 +1,8 @@
+# .github/workflows/documentation.yml
+name: documentation
+...
+jobs:
+  build-docs:
+      ...
+      - name: Deploy documentation
+        run: mkdocs gh-deploy --force
