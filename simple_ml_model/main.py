@@ -18,8 +18,7 @@ def predict():
     print('prediction successful!')
 
     # save data into database
-    ids = df["patient_id"].tolist()
-    save_output(ids, y_hat)
+    save_output(y_hat)
     print("prediction output saved.")
 
 if __name__ == '__main__': 

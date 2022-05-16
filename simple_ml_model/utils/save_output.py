@@ -7,9 +7,8 @@ db_engine = config.params["db_engine"]
 db_schema = config.params["db_schema"]
 output_table = config.params["db_output_table"] 
 
-def save_output(ids, y_hat):
+def save_output(y_hat):
     df = pd.DataFrame({
-        "patient_id": ids, 
         "y_hat": y_hat
     })
     engine = create_engine(db_engine)
