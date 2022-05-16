@@ -2,6 +2,7 @@ import joblib
 import os
 
 from utils.load_data import load_data
+from utils.save_output import save_output
 
 dirname = os.path.dirname(__file__)
 filename = os.path.join(dirname, 'models/best_model.pkl')
@@ -15,6 +16,11 @@ def predict():
     best_model = joblib.load(filename)
     y_hat = best_model.predict(X)
     print('prediction successful!')
+
+    # save data into database
+    ids = df["patient_id"].tolist()
+    save_output(ids, y_hat)
+    print("prediction output saved.")
 
 if __name__ == '__main__': 
     predict()
