@@ -10,7 +10,7 @@ filename = os.path.join(dirname, 'models/best_model.pkl')
 def predict(): 
     # load data 
     df = load_data()
-    X = df.iloc[:10,:-1]
+    X = df.iloc[:10, :-1]
 
     # load best model
     best_model = joblib.load(filename)
