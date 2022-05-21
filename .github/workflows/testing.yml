@@ -46,6 +46,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install -r requirements.txt --no-cache-dir
+      - name: Test database connection
+        run: |
+          sudo apt-get install -y postgresql-client
+          PGPASSWORD=mhLiu-Postgre psql -h localhost -p 5432 -U postgres -d sample_db -c "select 1"
       - name: Predict using the model
         run: python simple_ml_model/main.py
         env:
