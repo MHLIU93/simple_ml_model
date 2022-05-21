@@ -1,5 +1,6 @@
 params = {
-    "db_engine": "postgresql+psycopg2://postgres:mhLiu-Postgre@localhost:5432/sample_db",  # DB on local
+    # "db_engine": "postgresql+psycopg2://postgres:mhLiu-Postgre@localhost:5432/sample_db",  # DB on local
+    "db_engine": "postgresql+psycopg2://airflow:airflow@postgres/airflow", 
     "db_schema": "public",
     "db_experiments_table": "experiments",
     "db_batch_table": "batch_data",
