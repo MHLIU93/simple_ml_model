@@ -21,18 +21,13 @@ jobs:
     # the services for outside systems 
     services:
       postgres:
-        image: postgres:13
-        environment:
+        image: postgres
+        env:
           POSTGRES_USER: airflow
           POSTGRES_PASSWORD: airflow
           POSTGRES_DB: airflow
-        volumes:
-          - postgres-db-volume:/var/lib/postgresql/data
-        healthcheck:
-          test: ["CMD", "pg_isready", "-U", "airflow"]
-          interval: 5s
-          retries: 5
-        restart: always
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - name: Checkout repo
@@ -53,4 +48,4 @@ jobs:
         run: python simple_ml_model/main.py
         env:
           # The hostname used to communicate with the PostgreSQL service container
-          POSTGRES_HOST: postgres
+          POSTGRES_HOST: airflow
