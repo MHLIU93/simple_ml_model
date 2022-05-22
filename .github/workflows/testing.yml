@@ -58,4 +58,3 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: mhLiu-Postgre
           POSTGRES_PORT: 5432
-          
